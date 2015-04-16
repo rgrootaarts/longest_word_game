@@ -1,5 +1,6 @@
 package com.tricode.unittest;
 
+import com.tricode.business.WordCalculator;
 import com.tricode.business.WordValidator;
 import com.tricode.exception.NoExistingWordException;
 import com.tricode.exception.NotAWordException;
@@ -52,7 +53,7 @@ public class TestWordValidator {
     public void testCorrectCalculationWord() {
         String testString = new String("house");
 
-        WordValidator wordValidator = new WordValidator();
-        assertEquals(wordValidator.calculatePoints(testString), 5);
+        WordCalculator wordCalculator = new WordCalculator();
+        assertEquals(wordCalculator.calculatePoints(testString), 5);
     }
 }

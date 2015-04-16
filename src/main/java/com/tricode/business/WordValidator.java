@@ -24,8 +24,4 @@ public class WordValidator {
 
         return true;
     }
-
-    public int calculatePoints(String word) {
-        return word.length();
-    }
 }

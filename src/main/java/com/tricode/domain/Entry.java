@@ -1,6 +1,6 @@
 package com.tricode.domain;
 
-public class FormInput {
+public class Entry {
 
     private String user;
     private String word;
