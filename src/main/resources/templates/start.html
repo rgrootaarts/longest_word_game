@@ -6,10 +6,10 @@
 </head>
 <body>
 <h1>Try it out</h1>
-<form action="#" th:action="@{/result}" method="post">
-    <p>Username: <input type="text" /></p>
-    <p>English word: <input type="text" /></p>
-    <p><input type="submit" value="Submit" /></p>
+<form action="#" th:action="@{/result}" th:object="${formInput}" method="post">
+    <p>User: <input type="text" th:field="*{user}" /></p>
+    <p>Word: <input type="text" th:field="*{word}" /></p>
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
 </form>
 </body>
 </html>
