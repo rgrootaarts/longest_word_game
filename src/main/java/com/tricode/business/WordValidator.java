@@ -1,16 +1,15 @@
 package com.tricode.business;
 
-import com.tricode.domain.FormInput;
 import com.tricode.exception.NoExistingWordException;
 import com.tricode.exception.NotAWordException;
 
 public class WordValidator {
 
-    public boolean validateWord (FormInput input) throws NotAWordException, NoExistingWordException {
-        if (!onlyCharacters(input.getWord())) {
+    public boolean validateWord (String input) throws NotAWordException, NoExistingWordException {
+        if (!onlyCharacters(input)) {
             throw new NotAWordException();
         }
-        if (!existingWord(input.getWord())) {
+        if (!existingWord(input)) {
             throw new NoExistingWordException();
         }
         return true;
@@ -24,5 +23,9 @@ public class WordValidator {
         // json call to external rest api?
 
         return true;
+    }
+
+    public int calculatePoints(String word) {
+        return word.length();
     }
 }

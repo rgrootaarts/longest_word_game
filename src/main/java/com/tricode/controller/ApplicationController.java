@@ -22,13 +22,21 @@ public class ApplicationController {
     @RequestMapping(value="/result", method=RequestMethod.POST)
     public String resultPage(@ModelAttribute FormInput formInput, Model model) {
         WordValidator wordValidator = new WordValidator();
+        boolean result = false;
         try {
-            boolean result = wordValidator.validateWord(formInput);
+            result = wordValidator.validateWord(formInput.getWord());
         } catch (NotAWordException e) {
             return "start";
         } catch (NoExistingWordException e) {
             return "start";
         }
+
+        int score =0;
+        if (result==true) {
+            score = wordValidator.calculatePoints(formInput.getWord());
+        }
+
+        model.addAttribute("score", score);
         return "result";
     }
 }
